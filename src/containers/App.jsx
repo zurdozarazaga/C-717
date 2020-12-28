@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 import '../assets/styles/App.scss';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -14,7 +14,7 @@ const App = () => {
   const useinitialState = useInitialState(API);
   return useinitialState.length === 0 ? <h1>Loanding...</h1> : (
     <div className='App'>
-      {/* <Header /> */}
+      <Header />
       <Search />
       {useinitialState.mylist.length > 0 &&
         <Categories title='Mi lista'>

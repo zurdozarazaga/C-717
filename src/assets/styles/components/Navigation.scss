@@ -1,0 +1,8 @@
+@import '../Vars.scss';
+
+.navigation{
+  grid-area: navigation;
+  border: solid 1px red;
+  background: $header-color;
+  color: white;
+}

@@ -8,13 +8,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Header = () => (
   <header className='header'>
     <div className='header__container'>
-      <div className='header__logo'>
+      <div className='header__hero'>
+        <div className='header__logo'>
+          <img src='' alt='logo' />
         
-      </div>
-      <div className='header__user'>
-        
+        </div>
+        <h4>C-717</h4>
       </div>
       
+      <div className='header__user'>
+        <div className='user__img'>
+          <img src='' alt='perfil' />
+        </div>
+        <div className='dropdown'>
+          <span className='dropdown__user--name'>Administrador demo</span>
+          <div className='dropdown__content'>
+            <a href=''>Perfil</a>
+            <a href=''>Configuracion</a>
+            <a href=''>Cerrar Sesión</a>
+          </div>
+        </div>
+      </div>
     </div>
 
   </header>

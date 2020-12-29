@@ -1,5 +1,9 @@
+@import '../Vars.scss';
+
 .header {
-  background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5472);
+  grid-area: header;
+  border: solid 1px red;
+  background: $header-color;
   color: white;
   }
   

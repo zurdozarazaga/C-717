@@ -4,11 +4,16 @@
 body {
     margin: 0;
     font-family: $theme-fonts;
-    background: $main-color;
+    
   
   }
 
-  
-  * {
-    box-sizing: border-box;
+  .app {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    grid-gap: 10px;
+    height: 100vh;
+    grid-template-areas: "header header"
+                          "navigation content"
+                          "footer footer";
   }

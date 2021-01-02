@@ -11,14 +11,13 @@ const Header = () => (
       <div className='header__hero'>
         <div className='header__logo'>
           <img src='' alt='logo' />
-        
         </div>
         <h4>C-717</h4>
       </div>
       
       <div className='header__user'>
         <div className='user__img'>
-          <img src='' alt='perfil' />
+        <i class="fas fa-user"></i>
         </div>
         <div className='dropdown'>
           <span className='dropdown__user--name'>Administrador demo</span>

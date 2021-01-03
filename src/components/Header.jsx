@@ -1,9 +1,7 @@
 import React from 'react';
 import '../assets/styles/components/Header.scss';
-
-// import logo from '../assets/static/logo-platzi-video-BW2.png';
-// import usericon from '../assets/static/user-icon.png';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => (
   <header className='header'>
@@ -11,13 +9,15 @@ const Header = () => (
       <div className='header__hero'>
         <div className='header__logo'>
           <img src='' alt='logo' />
-        </div>
         <h4>C-717</h4>
+        </div>
       </div>
-      
+
       <div className='header__user'>
         <div className='user__img'>
-        <i class="fas fa-user"></i>
+          <span className='user__img--imgUser'>
+            <FontAwesomeIcon icon={faUser} /> 
+          </span>
         </div>
         <div className='dropdown'>
           <span className='dropdown__user--name'>Administrador demo</span>
@@ -29,7 +29,6 @@ const Header = () => (
         </div>
       </div>
     </div>
-
   </header>
 );
 

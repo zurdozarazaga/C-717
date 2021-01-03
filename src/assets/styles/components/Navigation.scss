@@ -2,7 +2,9 @@
 
 .navigation{
   grid-area: navigation;
+  width: 30%;
+  height: 100%;
   border: solid 1px red;
-  background: $header-color;
-  color: white;
+  background: $navigation-color;
+  color: $color-lyrics;
 }

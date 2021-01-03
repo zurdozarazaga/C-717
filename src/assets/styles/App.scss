@@ -10,10 +10,16 @@ body {
 
   .app {
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
-    grid-gap: 10px;
+    width: 100%;
     height: 100vh;
-    grid-template-areas: "header header"
-                          "navigation content"
-                          "footer footer";
-  }
+    grid-template: [header-left] "header header" 50px [header-right]
+                 [main-left]   "navigation  content" 1fr  [main-right]
+                 [footer-left] "navigation  footer" 50px [footer-right]
+                 / 15% 1fr;
+}
+  //   grid-gap: 10px;
+  //   height: 100vh;
+  // //   grid-template-areas: "header header"
+  // //                         "navigation content"
+  // //                         "navigation footer";
+  // // }

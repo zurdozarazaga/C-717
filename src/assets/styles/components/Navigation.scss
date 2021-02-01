@@ -9,6 +9,7 @@
   color: $color-lyrics;
   font-size: 16px;
   position: relative;
+  
 }
 
 .navigation__container {
@@ -21,6 +22,9 @@
   position: relative;
   width: 100%;
   height: 10%;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 // .navigation__item--Configuracion {
@@ -30,5 +34,10 @@
 .navigation__item--Configuracion span {
   position: relative;
   width: 100%;
-  font-size: 0.5em;
+  
+}
+
+.navigation__item--Configuracion {
+  display: flex;
+  justify-content: center;
 }

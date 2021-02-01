@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
@@ -8,6 +8,13 @@ import '../assets/styles/App.scss';
 
 
 const App = () => {
+  // const [ videos, setVideos ] = useState();
+
+  // useEffect (() => {
+  //   fetch(API)
+  //   .then(response => response.json())
+  //   .then(data => setVideos(data));
+  // });
   return (
     <div className='app'>
       <Header />

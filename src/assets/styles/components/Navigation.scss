@@ -1,4 +1,5 @@
 @import '../Vars.scss';
+@import '../Media.scss'; 
 
 .navigation{
   grid-area: navigation;
@@ -6,6 +7,8 @@
   height: 100%;
   background: $navigation-color;
   color: $color-lyrics;
+  font-size: 16px;
+  position: relative;
 }
 
 .navigation__container {
@@ -18,4 +21,14 @@
   position: relative;
   width: 100%;
   height: 10%;
+}
+
+// .navigation__item--Configuracion {
+//   position: absolute;
+// }
+
+.navigation__item--Configuracion span {
+  position: relative;
+  width: 100%;
+  font-size: 0.5em;
 }

@@ -3,38 +3,40 @@ import '../assets/styles/components/Navigation.scss';
 
 const Navigation = () => (
   <nav className='navigation'>
-    <div className='navigation__container'>
-      <div className='navigation__item--usuario'>
-        <span>Inicio</span>
-      </div>
-      <div className='navigation__item--Inicio'>
-        <span>Inicio</span>
-      </div>
-      <div className='navigation__item--Editar'>
-        <span>Editar</span>
-      </div>
-      <div className='navigation__item--Montaje'>
-        <span>Montaje</span>
-      </div>
-      <div className='navigation__item--Desmontaje'>
-        <span>Desmontaje</span>
-      </div>
-      <div className='navigation__item--Elementos'>
-        <span>Elementos</span>
-      </div>
-      <div className='navigation__item--Activos'>
-        <span>Activos</span>
-      </div>
-      <div className='navigation__item--Vencimientos'>
-        <span>Vencimientos</span>
-      </div>
-      <div className='navigation__item--Contactos'>
-        <span>Contactos</span>
-      </div>
-      <div className='navigation__item--Configuración'>
-        <span>Configuración</span>
-      </div>
-    </div>
+    <ul className='navigation__container'>
+      <li className='navigation__item--usuario'>
+        Usuario
+      </li>
+      <li className='navigation__item--Inicio'>
+        Inicio
+      </li>
+      <li className='navigation__item--Editar'>
+        Editar
+        <ul>
+          <li className='navigation__item--Montaje'>
+            Montaje
+          </li>
+          <li className='navigation__item--Desmontaje'>
+            Desmontaje
+          </li>
+        </ul>
+      </li>
+      <li className='navigation__item--Elementos'>
+        Elementos
+      </li>
+      <li className='navigation__item--Activos'>
+        Activos
+      </li>
+      <li className='navigation__item--Vencimientos'>
+        Vencimientos
+      </li>
+      <li className='navigation__item--Contactos'>
+        Contactos
+      </li>
+      <li className='navigation__item--Configuración'>
+        Configuración
+      </li>
+    </ul>
   </nav>
 );
 

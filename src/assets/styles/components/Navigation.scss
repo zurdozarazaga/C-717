@@ -9,13 +9,14 @@
   color: $color-lyrics;
   font-size: 16px;
   position: relative;
-  
+    
 }
 
 .navigation__container {
   position: absolute;
   width: 100%;
   height: auto;
+  
 }
 
 .navigation__container div {
@@ -24,7 +25,9 @@
   height: 10%;
   display: flex;
   justify-content: center;
-  padding-top: 5px;
+  align-items: center;
+  padding-top: 10px;
+  border-bottom: solid 0.7px $color-lyrics;
 }
 
 // .navigation__item--Configuracion {
@@ -34,10 +37,20 @@
 .navigation__item--Configuracion span {
   position: relative;
   width: 100%;
+  cursor: pointer;
   
 }
 
-.navigation__item--Configuracion {
-  display: flex;
-  justify-content: center;
+.navigation__container div:hover {
+  cursor: pointer;
+}
+
+// .navigation__container div:active {
+//   display: none;
+//   cursor: pointer;
+//   background-color: $dropdown--hover
+// }
+
+.navigation__item--Montaje  {
+  display: none !important;
 }

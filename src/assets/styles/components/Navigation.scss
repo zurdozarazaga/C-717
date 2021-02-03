@@ -1,6 +1,8 @@
 @import '../Vars.scss';
 @import '../Media.scss'; 
 
+
+
 .navigation{
   grid-area: navigation;
   width: 100%;
@@ -10,6 +12,10 @@
   font-size: 16px;
   position: relative;
     
+}
+
+.navigation__container a {
+  color: $color-lyrics;
 }
 
 .navigation__container {
@@ -33,26 +39,50 @@
   // border-bottom: solid 0.7px $color-lyrics;
 }
 
-// .navigation__item--Configuracion {
-//   position: absolute;
-// }
+.navigation__container ul {
+  padding-top: 10px;
+}
 
-.navigation__item--Configuracion li {
-  position: relative;
-  width: 100%;
+.navigation__container a:hover {
   cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+
+
+li.navigation__item--Editar {
+  padding: 0;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
   
 }
 
-.navigation__container li:hover {
-  cursor: pointer;
+.navigation__item--Editar ul{
+  padding: 0;
 }
 
-.navigation__item--Editar {
-  flex-wrap: wrap; 
-  
+.navigation__item--Editar ul {
+  display: none;
 }
 
-// .navigation__item--Montaje  {
-//   display: none !important;
-// }
+.navigationEdit__container li:active ul {
+  display: block;
+}
+
+li.navigation__item--Elementos {
+  padding: 0;
+  padding-top: 10px;
+  display: block;
+  text-align: center; 
+}
+
+.navigation__item--Elementos ul{
+  padding: 0;
+}
+
+
+li.navigation__item--Elementos ul {
+  display: none;
+}

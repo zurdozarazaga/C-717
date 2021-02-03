@@ -8,33 +8,37 @@ const Navigation = () => (
         Usuario
       </li>
       <li className='navigation__item--Inicio'>
-        Inicio
+        <a href='./'>Inicio</a>
       </li>
-      <li className='navigation__item--Editar'>
-        Editar
+      <div className='navigationEdit__container'>
+        <li className='navigation__item--Editar'>
+          <a href='#editar'>Editar</a>
+          <ul id='editar'>
+            <li className='navigation__item--Montaje'>
+              <a href='./'>Montaje</a>
+            </li>
+            <li className='navigation__item--Desmontaje'>
+              <a href='./'>Desmontaje</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+      <li className='navigation__item--Elementos'>
+        <a href='./'>Elementos</a>
         <ul>
-          <li className='navigation__item--Montaje'>
-            Montaje
+          <li className='navigation__item--Activos'>
+            <a href='./'>Activos</a>
           </li>
-          <li className='navigation__item--Desmontaje'>
-            Desmontaje
+          <li className='navigation__item--Vencimientos'>
+            <a href='./'>Vencimientos</a>
           </li>
         </ul>
       </li>
-      <li className='navigation__item--Elementos'>
-        Elementos
-      </li>
-      <li className='navigation__item--Activos'>
-        Activos
-      </li>
-      <li className='navigation__item--Vencimientos'>
-        Vencimientos
-      </li>
       <li className='navigation__item--Contactos'>
-        Contactos
+        <a href='./'>Contactos</a>
       </li>
       <li className='navigation__item--Configuración'>
-        Configuración
+        <a href='./'>Configuración</a>
       </li>
     </ul>
   </nav>

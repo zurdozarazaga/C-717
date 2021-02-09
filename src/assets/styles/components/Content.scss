@@ -1,0 +1,8 @@
+@import '../Vars.scss';
+
+.content{
+  grid-area: content;
+  border: solid 1px red;
+  background: $header-color;
+  color: white;
+}

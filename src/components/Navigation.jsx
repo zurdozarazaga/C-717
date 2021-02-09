@@ -3,10 +3,15 @@ import '../assets/styles/components/Navigation.scss';
 
 
 const Navigation = () => {
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdownEdit, setDropdownEdit] = useState(false);
+  const [dropdownElement, setDropdownElement] = useState(false);
 
-  const handleClick = () => {
-    setDropdown(!dropdown);
+  const handleClickEdit = () => {
+    setDropdownEdit(!dropdownEdit);
+  };
+
+  const handleClickElement = () => {
+    setDropdownElement(!dropdownElement);
   };
 
   return (
@@ -19,15 +24,15 @@ const Navigation = () => {
           <a href='./'>Inicio</a>
         </li>
         <li className='navigation__item--Editar' id='editar'>
-          <a onClick={handleClick} href='#editar'>Editar</a>
-          <div className={dropdown ? 'visible': 'no-visible'}>
+          <a onClick={handleClickEdit} href='#editar'>Editar</a>
+          <div className={dropdownEdit ? 'visible' : 'no-visible'}>
             <a href='./'>Montaje</a>
             <a href='./'>Desmontaje</a>
           </div>
         </li>
         <li className='navigation__item--Editar' id='editar'>
-          <a onClick={handleClick} href='#editar'>Elementos</a>
-          <div className={dropdown ? 'visible': 'no-visible'}>
+          <a onClick={handleClickElement} href='#editar'>Elementos</a>
+          <div className={dropdownElement ? 'visible' : 'no-visible'}>
             <a href='./'>Activos</a>
             <a href='./'>Vencimientos</a>
           </div>

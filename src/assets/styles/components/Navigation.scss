@@ -64,21 +64,16 @@ li.navigation__item--Editar {
   
 }
 
-// .submenu {
-//   padding: 0;
-//   text-align: center;
-// }
-
-// .submenu a {
-//   display:block;
-//   padding-top: 10px;
-// }
 
 li.navigation__item--Elementos {
   padding: 0;
   padding-top: 10px;
   display: block;
   text-align: center; 
+}
+
+.visible {
+  background-color: $dropdown--hover;
 }
 
 .visible a {

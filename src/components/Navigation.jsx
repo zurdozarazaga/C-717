@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../assets/styles/components/Navigation.scss';
 
-
 const Navigation = () => {
   const [dropdownEdit, setDropdownEdit] = useState(false);
   const [dropdownElement, setDropdownElement] = useState(false);

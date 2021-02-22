@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "c-717-58cb9",
     "public": "dist",
     "ignore": [
       "firebase.json",

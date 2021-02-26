@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/Navigation.scss';
 
 const Navigation = () => {
@@ -17,33 +18,49 @@ const Navigation = () => {
     <nav className='navigation'>
       <ul className='navigation__container'>
         <li className='navigation__item--usuario'>
-          Usuario
+          <Link to='/Usuario'>
+            Usuario
+          </Link>
         </li>
         <li className='navigation__item--Inicio'>
-          <a href='./'>Inicio</a>
+          <Link to='/Home'>
+            Inicio
+          </Link>
         </li>
         <li className='navigation__item--Editar' id='editar'>
           <a onClick={handleClickEdit} href='#editar'>Editar</a>
           <div className={dropdownEdit ? 'visible' : 'no-visible'}>
-            <a href='./'>Montaje</a>
-            <a href='./'>Desmontaje</a>
+            <Link to='/Montajes'>
+              Montajes
+            </Link>
+            <Link to='/Desmontajes'>
+              Desmontajes
+            </Link>
           </div>
         </li>
         <li className='navigation__item--Editar' id='editar'>
           <a onClick={handleClickElement} href='#editar'>Elementos</a>
           <div className={dropdownElement ? 'visible' : 'no-visible'}>
-            <a href='./'>Activos</a>
-            <a href='./'>Vencimientos</a>
+            <Link to='/Activos'>
+              Activos
+            </Link>
+            <Link to='/Vencimientos'>
+              Vencimientos
+            </Link>
           </div>
         </li>
         <li className='navigation__item--Contactos'>
-          <a href='./'>Contactos</a>
+          <Link to='/Contactos'>
+            Contactos
+          </Link>
         </li>
         <li className='navigation__item--Configuración'>
-          <a href='./'>Configuración</a>
+          <Link to='/Configuracion'>
+          Configuración
+          </Link>
         </li>
       </ul>
     </nav>
   );
-}
+};
 export default Navigation;

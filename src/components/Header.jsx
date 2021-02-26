@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -24,7 +25,10 @@ const Header = () => (
           <div className='dropdown__content'>
             <a href=''>Perfil</a>
             <a href=''>Configuracion</a>
-            <a href=''>Cerrar Sesión</a>
+            <Link to='login'>
+              Iniciar Sesion
+            </Link>
+            {/* <a href=''>Iniciar Sesion</a> */}
           </div>
         </div>
       </div>

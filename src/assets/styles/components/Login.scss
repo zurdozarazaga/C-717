@@ -16,17 +16,20 @@
   border-radius: 40px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-height: 700px;
-  padding: 60px 68px 40px;
-  width: 300px;
+  display: grid;
+  max-height: auto;
+  grid-template-areas: 
+  'iniciar-sesion iniciar-sesion'
+  'email social-media'
+  'email register';
+}
+
+.login__container--title {
+  grid-area: iniciar-sesion;
 }
 
 .login__container--form {
-  display: flex;
-  flex-direction: column;
+  grid-area: email;
 }
 
 .login__container--form label {
@@ -50,11 +53,12 @@
   text-decoration: underline;
 }
 
-.login__container--social-media > div {
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  margin-bottom: 10px;
+.login__container--social-media {
+  grid-area: social-media;
+  // align-items: center;
+  // display: flex;
+  // font-size: 14px;
+  // margin-bottom: 10px;
 }
 
 .login__container--social-media > div > img {
@@ -63,7 +67,7 @@
 }
 
 .login__container--register {
-  font-size: 14px;
+  grid-area: register;
 }
 
 .login__container--register a {
@@ -84,3 +88,45 @@
   height: 100px;
   width: 100%;
 }
+
+.input {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+}
+
+::placeholder {
+  color: white;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Muli', sans-serif;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 10px 0px;
+}
+
+// @media only screen and (max-width: 600px) {
+//   .login__container {
+//     background-color: transparent;
+//     border: none;
+//     box-shadow: none;
+//     padding: 0px;
+//     width: 100%;
+//   }

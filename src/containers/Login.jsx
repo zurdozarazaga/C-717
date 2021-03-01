@@ -4,7 +4,9 @@ import '../assets/styles/components/Login.scss';
 const Login = () => (
   <section className='login'>
     <section className='login__container'>
-      <h2>Inicia sesión</h2>
+      <div className='login_container--title'>
+        <h2>Inicia sesión</h2>
+      </div>
       <form className='login__container--form'>
         <input className='input' type='text' placeholder='Correo' />
         <input className='input' type='password' placeholder='Contraseña' />
@@ -30,7 +32,7 @@ const Login = () => (
         </div>
       </section>
       <p className='login__container--register'>
-        No tienes ninguna cuenta 
+        No tienes ninguna cuenta
         <a href>
           Regístrate
         </a>

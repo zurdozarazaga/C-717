@@ -1,7 +1,7 @@
 @import '../Vars.scss';
 
 .login {
-  background-image: linear-gradient(#21c08b, #8f57fd);
+  background-image: linear-gradient(to bottom, #1c3643, #1e343f, #1f323a, #212f36, #222d32);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -17,19 +17,29 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   color: white;
   display: grid;
-  max-height: auto;
+  position: relative;
+  height: 75%;
+  width: 75%;
   grid-template-areas: 
-  'iniciar-sesion iniciar-sesion'
-  'email social-media'
-  'email register';
+    'title title'
+    'email social-media'
+    'email register';
 }
 
-.login__container--title {
-  grid-area: iniciar-sesion;
+.login_container--title  {
+  grid-area: title;
+  text-align: center;
 }
-
+ 
 .login__container--form {
   grid-area: email;
+  text-align: center;
+  margin: 0 5%; 
+}
+
+.login__container--form > input {
+  display: block;
+  width: 80%;
 }
 
 .login__container--form label {
@@ -40,7 +50,8 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin: 20px 10px 0 10px;
+  padding: 0 5%;
 }
 
 .login__container--remember-me a {
@@ -55,10 +66,29 @@
 
 .login__container--social-media {
   grid-area: social-media;
-  // align-items: center;
-  // display: flex;
-  // font-size: 14px;
-  // margin-bottom: 10px;
+}
+
+
+.login__container--logo {
+  font-size: 50px;
+}
+
+.login__container--google {
+  margin-bottom: 50px;
+}
+
+.login__container--google-parrafo{
+  margin-left: 20px;
+  text-align:  center;
+}
+
+.login__container--facebook-parrafo{
+  margin-left: 20px;
+  text-align:  center;
+}
+
+.login__container--facebook {
+  margin-bottom: 60px;
 }
 
 .login__container--social-media > div > img {
@@ -68,6 +98,9 @@
 
 .login__container--register {
   grid-area: register;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 20px 0 10px;
 }
 
 .login__container--register a {
@@ -75,6 +108,15 @@
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
+}
+
+.login__container--register a:hover {
+  text-decoration: underline;
+}
+
+.login__container--register p {
+  font-size: 14px;
+  margin: 0;
 }
 
 .login__container--register a:hover {

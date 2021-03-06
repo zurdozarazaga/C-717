@@ -1,11 +1,12 @@
 import React from 'react';
 import '../assets/styles/components/Login.scss';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 const Login = () => (
   <section className='login'>
     <section className='login__container'>
       <div className='login_container--title'>
-        <h2>Inicia sesión</h2>
+        <h2>Iniciar sesión</h2>
       </div>
       <form className='login__container--form'>
         <input className='input' type='text' placeholder='Correo' />
@@ -22,21 +23,27 @@ const Login = () => (
         </div>
       </form>
       <section className='login__container--social-media'>
-        <div>
-          <img src='../assets/google-icon.png' alt='Google'/> 
-          Inicia sesión con Google
+        <div className='login__container--google'>
+          <span className='login__container--logo'>
+            <FontAwesomeIcon icon={faGoogle} />
+          </span>
+          <span className='login__container--google-parrafo'>Iniciar sesion con Google</span>
         </div>
-        <div>
-          <img src='../assets/twitter-icon.png' alt='Facebook'/> 
-          Inicia sesión con Facebook
+        <div className='login__container--facebook'>
+          <span className='login__container--logo'>
+            <FontAwesomeIcon icon={faFacebook} />
+          </span>
+          <span className='login__container--facebook-parrafo'>Iniciar sesion con Facebook</span>
+        </div>
+        <div className='login__container--register'>
+          <p>
+            No tienes ninguna cuenta
+          </p>
+          <a href>
+            Regístrate
+          </a>
         </div>
       </section>
-      <p className='login__container--register'>
-        No tienes ninguna cuenta
-        <a href>
-          Regístrate
-        </a>
-      </p>
     </section>
   </section>
 

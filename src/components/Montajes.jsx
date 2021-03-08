@@ -1,56 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/Montajes.scss';
+import db from '../firebase';
 
-const Montajes = () => (
-  <table summary="Los grupos de música punk más famosos del Reino Unido">
-    <caption>Un resumen de los grupos de música punk más famosos del Reino Unido</caption>
-    <thead>
-      <tr>
-        <th scope="col">Grupo</th>
-        <th scope="col">Año de formación</th>
-        <th scope="col">Número de álbumes</th>
-        <th scope="col">Canción más conocida</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Buzzcocks</th>
-        <td>1976</td>
-        <td>9</td>
-        <td>Ever fallen in love (with someone you shouldn't've)</td>
-      </tr>
-      <tr>
-        <th scope="row">The Clash</th>
-        <td>1976</td>
-        <td>6</td>
-        <td>London Calling</td>
-      </tr>
-      <tr>
-        <th scope="row">The Clash</th>
-        <td>1976</td>
-        <td>6</td>
-        <td>London Calling</td>
-      </tr>
-      <tr>
-        <th scope="row">The Clash</th>
-        <td>1976</td>
-        <td>6</td>
-        <td>London Calling</td>
-      </tr>
-      <tr>
-        <th scope="row">The Clash</th>
-        <td>1976</td>
-        <td>6</td>
-        <td>London Calling</td>
-      </tr>
-      <tr>
-        <th scope="row">The Clash</th>
-        <td>1976</td>
-        <td>6</td>
-        <td>London Calling</td>
-      </tr>
-    </tbody>
-  </table>
-);
+const Montajes = () => {
+
+
+
+
+  const [data, setData] = useState([]);
+
+  return (
+    <table summary="Los grupos de música punk más famosos del Reino Unido">
+      <caption>Un resumen de los grupos de música punk más famosos del Reino Unido</caption>
+      <thead>
+        <tr>
+          <th scope="col">Número de Parte</th>
+          <th scope="col">Designación</th>
+          <th scope="col">Número de Serie</th>
+          <th scope="col">Posición</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(elemento=>(
+          <tr>
+            <th scope="row">{elemento.id}</th>
+            <td>{elemento.nombre}</td>
+            <td>{elemento.minutos}</td>
+            <td>
+              <button className='' onClick={()=>seleccionarPais(elemento, 'Editar')}>Editar</button> {"   "} 
+              <button className='' onClick={()=>seleccionarPais(elemento, 'Eliminar')}>Eliminar</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+
 
 export default Montajes;

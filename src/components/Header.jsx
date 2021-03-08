@@ -17,7 +17,7 @@ const Header = () => (
       <div className='header__user'>
         <div className='user__img'>
           <span className='user__img--imgUser'>
-            <FontAwesomeIcon icon={faUser} /> 
+            <FontAwesomeIcon icon={faUser} />
           </span>
         </div>
         <div className='dropdown'>

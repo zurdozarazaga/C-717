@@ -1,0 +1,16 @@
+@import '../Vars.scss';
+
+.filter__container {
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  background-image: $content;
+  min-height: 50px;
+}
+
+.select__containerAircraft {
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-left: 5px;
+}

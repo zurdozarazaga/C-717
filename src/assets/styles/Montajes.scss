@@ -1,5 +1,11 @@
 @import './Vars.scss';
 
+.table__container {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 table {
   background-image: $content;
   color: white;

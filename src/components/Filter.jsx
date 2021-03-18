@@ -13,12 +13,12 @@ const Filter = () => {
       </form>
       <form action="">
       <label for="Aircraft">Seleccione Matricula:</label>
-        <select className='select__containerMatricula' name="Matricula" id="">
+        <select className='select__containerAircraft' name="Matricula" id="">
           <option className='select__containerMatricula--value' value="">A-114</option>
           <option className='select__containerMatricula--value' value="">E-803</option>
         </select>
       </form>
-      <button type='submit' className='filter__container--buttom'> Buscar </button>
+      <button type='submit' className='filter__container--button'> Buscar </button>
     </div>
   );
 };

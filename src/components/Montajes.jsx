@@ -44,10 +44,10 @@ const Montajes = () => {
                 <tr>
                   <td key={i}>{ elemento.designacion }</td>
                   <th scope="row">{ elemento.numeroParte }</th>
-                  <td >{ elemento.numeroSerie }</td>
-                  <td >{ elemento.posicion }</td>
-                  <td >{ elemento.numeroDesmontaje }</td>
-                  <td > fecha </td>
+                  <td>{ elemento.numeroSerie }</td>
+                  <td>{ elemento.posicion }</td>
+                  <td>{ elemento.numeroDesmontaje }</td>
+                  <td> fecha </td>
                 </tr>
               );
             })

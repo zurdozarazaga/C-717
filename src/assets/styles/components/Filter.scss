@@ -3,14 +3,38 @@
 .filter__container {
   display: flex;
   color: white;
+  font-size: 14px;
   justify-content: space-around;
   align-items: center;
   background-image: $content;
-  min-height: 50px;
+  min-height: 80px;
 }
 
 .select__containerAircraft {
   border-radius: 5px;
-  border: 2px solid white;
-  margin-left: 5px;
+  border: none;
+  margin-left: 7px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  letter-spacing: 1px;
+  height: 20px;
+  font-size: 14px;
+  outline: none;  
+}
+
+option {
+  background-color:$color-lyrics;
+}
+
+.filter__container--button {
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  letter-spacing: 1px;
+  min-height: 30px;
+  min-width: 80px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;  
 }

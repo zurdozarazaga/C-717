@@ -10,9 +10,22 @@
 .add--label {
   font-size: 14px;
   text-align: center;
-  margin-right: 8px;
+  align-items: center;
+  margin-right: 4px;
+  margin-bottom: 0;
 }
 
 .add--botton:hover {
   cursor: pointer;
+  color: black;
+
+}
+
+.btn{
+  border: solid red 1px;
+  background-color: yellow;
+}
+
+.closeButton {
+  border: solid red 1px;
 }

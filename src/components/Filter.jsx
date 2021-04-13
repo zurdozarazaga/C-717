@@ -9,8 +9,8 @@ const Filter = () => {
         <div className='filter__container--add'>
           <Add />
         </div>
-        <form className='filter__container' action="">
-          <label for="Aircraft">Seleccione Aeronave:</label>
+        <form className='filter__container'>
+          <label for='Aircraft'>Seleccione Aeronave:</label>
           <select className='select__containerAircraft' name="Aircraft" id="">
             <option className='select__containerAircraft--value' value="Aeronaves">Emb-312 Tucano</option>
             <option className='select__containerAircraft--value' value="Aeronaves">IA-63 Pampa</option>

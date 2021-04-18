@@ -21,11 +21,127 @@
 
 }
 
-.btn{
-  border: solid red 1px;
-  background-color: yellow;
+#modal-header {
+  border-bottom: 0;
 }
 
-.closeButton {
-  border: solid red 1px;
+.modal-content {
+  background-image: $content;
+  color: white;
+  width: 80%;
 }
+
+#inputDesignation {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#inputNumSerial {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#inputNumPart {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#inputPosition {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#inputNumDesm {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#inputDate {
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 80%;
+  height: auto;
+}
+
+#modal-footer {
+  border-top: 0;
+}
+
+#buttonSave{
+  background-image: $button-save;
+}
+
+#buttonClose {
+  background-image: $content;
+}
+

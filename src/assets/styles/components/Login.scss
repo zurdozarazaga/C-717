@@ -1,7 +1,7 @@
 @import '../Vars.scss';
 
 .login {
-  background-image: linear-gradient(to bottom, #1c3643, #1e343f, #1f323a, #212f36, #222d32);
+  background-image: $content;
   display: flex;
   align-items: center;
   flex-direction: column;

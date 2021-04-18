@@ -7,8 +7,6 @@ import Montajes from '../components/Montajes';
 import Desmontajes from '../components/Desmontajes';
 import Activos from '../components/Activos';
 import Vencimientos from '../components/Vencimientos';
-import Modal from '../components/Modal';
-
 const App = () => (
   <BrowserRouter>
     <Layout>
@@ -19,8 +17,6 @@ const App = () => (
         <Route exact path='/Desmontajes' component={Desmontajes} />
         <Route exact path='/Activos' component={Activos} />
         <Route exact path='/Vencimientos' component={Vencimientos} />
-        <Route exact path='/Modal' component={Modal} />
-
       </Switch>
     </Layout>
   </BrowserRouter>

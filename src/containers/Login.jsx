@@ -2,6 +2,7 @@ import React from 'react';
 import '../assets/styles/components/Login.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 const Login = () => (
   <section className='login'>
     <section className='login__container'>

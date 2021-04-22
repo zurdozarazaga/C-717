@@ -7,12 +7,12 @@ import 'firebase/firestore';
 const ModalCards = (props) => {
   console.log(props);
   const initialStateValues = {
-    designation: '',
-    numPart: '',
-    numSerial: '',
-    position: '',
-    numDesm: '',
-    date: '',
+    designacion: '',
+    numeroParte: '',
+    numeroSerie: '',
+    posicion: '',
+    numeroDesmotanje: '',
+    fecha: '',
   };
 
   const [values, setValues] = useState(initialStateValues);
@@ -23,7 +23,7 @@ const ModalCards = (props) => {
     setValues({ ...values, [name]: value });
   };
 
-  const getData = async (values) => {
+  const setData = async (values) => {
     console.log(values);
     const db = firebase.firestore();
     try {
@@ -37,7 +37,8 @@ const ModalCards = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(values);
-    getData(values);
+    setData(values);
+    setValues({ ...initialStateValues });
   };
 
   const { newElement } = props;
@@ -58,16 +59,21 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputDesignation'
                 onChange={handleInputChange}
-                name='designation'
+                name='designacion'
+                placeholder='Nombre del elemento'
+                value={values.designacion}
               />
             </FormGroup>
             <FormGroup>
-              <Label for='password'>Número de Parte</Label>
+              <Label>Número de Parte</Label>
               <Input
                 type='text'
                 id='inputNumPart'
                 onChange={handleInputChange}
-                name='numPart'
+                name='numeroParte'
+                placeholder='Numero de parte del elemento'
+                value={values.numeroParte}
+                
               />
             </FormGroup>
             <FormGroup>
@@ -76,7 +82,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputNumSerial'
                 onChange={handleInputChange}
-                name='numSerial'
+                name='numeroSerie'
+                placeholder='Numero de serie del elemento'
+                value={values.numeroSerie}
               />
             </FormGroup>
             <FormGroup>
@@ -85,7 +93,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputPosition'
                 onChange={handleInputChange}
-                name='position'
+                name='posicion'
+                placeholder='Posición en la aeronave'
+                value={values.posicion}
               />
             </FormGroup>
             <FormGroup>
@@ -94,7 +104,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputNumDesm'
                 onChange={handleInputChange}
-                name='numDesm'
+                name='numeroDesmotanje'
+                placeholder='Numero de desmontaje en el SIL'
+                value={values.numeroDesmotanje}
               />
             </FormGroup>
             <FormGroup>
@@ -103,7 +115,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputDate'
                 onChange={handleInputChange}
-                name='date'
+                name='fecha'
+                placeholder='Fecha de Montaje'
+                value={values.fecha}
               />
             </FormGroup>
         </ModalBody>

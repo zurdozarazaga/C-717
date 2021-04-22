@@ -16,7 +16,7 @@ const Montajes = () => {
       try {
         const data = await db.collection('Elementos').get();
         const arrayData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        // console.log(arrayData);
+        console.log(arrayData);
         setData(arrayData);
       } catch (error) {
         console.log(error);

@@ -8,7 +8,7 @@ import 'firebase/firestore';
 import db from '../firebase';
 
 const Montajes = () => {
-
+  // peticion a la base de datos firebase, lo guardo en el state 'data' y lo recorro
   const [data, setData] = useState([]);
   React.useEffect(() => {
     const getData = async () => {
@@ -42,19 +42,20 @@ const Montajes = () => {
           </tr>
         </thead>
         <tbody>
+          {/* recorre el array del query */}
           {
             data.map((elemento, i) => {
               return (
                 <tr>
-                  <td key={i}>{ elemento.designacion }</td>
-                  <th scope="row">{ elemento.numeroParte }</th>
-                  <td>{ elemento.numeroSerie }</td>
-                  <td>{ elemento.posicion }</td>
-                  <td>{ elemento.numeroDesmontaje }</td>
-                  <td> fecha </td>
-                  <td>
+                  <td className='td__designacion' key={i}>{ elemento.designacion }</td>
+                  <th className='td__numeroParte' scope="row">{ elemento.numeroParte }</th>
+                  <td className='td__numeroSerie'>{ elemento.numeroSerie }</td>
+                  <td className='td__posicion'>{ elemento.posicion }</td>
+                  <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
+                  <td className='td__fecha'> fecha </td>
+                  <td className='td__acciones'>
                     <Edit />
-                    <Delete />
+                    <Delete idElemento={elemento.id} />
                   </td>
                 </tr>
               );

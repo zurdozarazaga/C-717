@@ -3,6 +3,8 @@ import '../assets/styles/components/Add.scss';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 import firebase from "firebase/app";
 import 'firebase/firestore';
+import { toast } from 'react-toastify';
+import { getQueriesForElement } from '@testing-library/dom';
 
 const ModalCards = (props) => {
   console.log(props);
@@ -14,6 +16,9 @@ const ModalCards = (props) => {
     numeroDesmotanje: '',
     fecha: '',
   };
+
+  const { newElement } = props;
+  const { onClick } = props;
 
   const [values, setValues] = useState(initialStateValues);
 
@@ -28,9 +33,26 @@ const ModalCards = (props) => {
     const db = firebase.firestore();
     try {
       await db.collection('Elementos').add(values);
-      console.log('elemento agregado');
+      toast.success('Elemento Agregado!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.log(`se produzco un error ${error}`);
+      toast.error('Se produzco un error al guardar el Elemento!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -39,10 +61,8 @@ const ModalCards = (props) => {
     // console.log(values);
     setData(values);
     setValues({ ...initialStateValues });
+    onClick();
   };
-
-  const { newElement } = props;
-  const { onClick } = props;
 
   return (
     <>
@@ -73,7 +93,6 @@ const ModalCards = (props) => {
                 name='numeroParte'
                 placeholder='Numero de parte del elemento'
                 value={values.numeroParte}
-                
               />
             </FormGroup>
             <FormGroup>
@@ -124,7 +143,7 @@ const ModalCards = (props) => {
 
           <ModalFooter id='modal-footer'>
             <Button id='buttonSave'>Guardar</Button>
-            <Button id='buttonClose'  onClick={ onClick } >Cerrar</Button>
+            <Button id='buttonClose' onClick={onClick}>Cerrar</Button>
         </ModalFooter>
         </Form>
       </Modal>

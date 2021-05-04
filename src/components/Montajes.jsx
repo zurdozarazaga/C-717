@@ -7,7 +7,8 @@ import Delete from './Delete';
 import 'firebase/firestore';
 import db from '../firebase';
 
-const Montajes = () => {
+const Montajes = (props) => {
+  console.log(props);
   // peticion a la base de datos firebase, lo guardo en el state 'data' y lo recorro
   const [data, setData] = useState([]);
   React.useEffect(() => {
@@ -16,15 +17,20 @@ const Montajes = () => {
       try {
         await db.collection('Elementos').onSnapshot((data) => {
           const arrayData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          console.log(arrayData);
+          // console.log(arrayData);
           setData(arrayData);
         });
       } catch (error) {
         console.log(error);
-      }
+      };
     };
     getData();
   }, []);
+
+  // obtengo el id del elemento en Edit
+  const getCurrentId = (currentId) => {
+    console.log(currentId);
+  };
   return (
     <div className='table__container'>
       <Filter />
@@ -54,7 +60,11 @@ const Montajes = () => {
                   <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
                   <td className='td__fecha'> fecha </td>
                   <td className='td__acciones'>
-                    <Edit />
+                    <Edit
+                      // envio la funcion al Edit
+                      getCurrentId={getCurrentId}
+                      elementoId={elemento.id}
+                    />
                     <Delete idElemento={elemento.id} />
                   </td>
                 </tr>

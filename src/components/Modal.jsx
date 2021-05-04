@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { getQueriesForElement } from '@testing-library/dom';
 
 const ModalCards = (props) => {
-  console.log(props);
+  // console.log(props);
   const initialStateValues = {
     designacion: '',
     numeroParte: '',
@@ -17,19 +17,23 @@ const ModalCards = (props) => {
     fecha: '',
   };
 
+  // props coming from Add.jsx
   const { newElement } = props;
   const { onClick } = props;
 
+  //values from handleInputChange
   const [values, setValues] = useState(initialStateValues);
 
+  //setting values from Modal
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
     setValues({ ...values, [name]: value });
   };
 
+  // Modal values addded to Firebase
   const setData = async (values) => {
-    console.log(values);
+    // console.log(values);
     const db = firebase.firestore();
     try {
       await db.collection('Elementos').add(values);
@@ -56,6 +60,7 @@ const ModalCards = (props) => {
     }
   };
 
+  //setting values in useState
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(values);

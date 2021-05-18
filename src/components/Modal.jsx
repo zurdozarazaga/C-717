@@ -7,6 +7,15 @@ import { toast } from 'react-toastify';
 import { getQueriesForElement } from '@testing-library/dom';
 
 const ModalCards = (props) => {
+  console.log(props);
+  // props coming from Add.jsx
+  const { newElement } = props;
+  const { onClick } = props;
+  const { getCurrentId } = props;
+
+  // const currentId = getCurrentId();
+  // console.log(currentId);
+
   // console.log(props);
   const initialStateValues = {
     designacion: '',
@@ -16,10 +25,6 @@ const ModalCards = (props) => {
     numeroDesmotanje: '',
     fecha: '',
   };
-
-  // props coming from Add.jsx
-  const { newElement } = props;
-  const { onClick } = props;
 
   //values from handleInputChange
   const [values, setValues] = useState(initialStateValues);
@@ -67,8 +72,9 @@ const ModalCards = (props) => {
     setData(values);
     setValues({ ...initialStateValues });
     onClick();
-  };
 
+  };
+  console.log(newElement);
   return (
     <>
       <Modal id='modal-content' isOpen={newElement}>
@@ -144,12 +150,12 @@ const ModalCards = (props) => {
                 value={values.fecha}
               />
             </FormGroup>
-        </ModalBody>
+          </ModalBody>
 
           <ModalFooter id='modal-footer'>
             <Button id='buttonSave'>Guardar</Button>
             <Button id='buttonClose' onClick={onClick}>Cerrar</Button>
-        </ModalFooter>
+          </ModalFooter>
         </Form>
       </Modal>
     </>

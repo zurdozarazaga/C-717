@@ -8,9 +8,10 @@ import 'firebase/firestore';
 import db from '../firebase';
 
 const Montajes = (props) => {
-  console.log(props);
+  // console.log(props);
   // peticion a la base de datos firebase, lo guardo en el state 'data' y lo recorro
   const [data, setData] = useState([]);
+
   React.useEffect(() => {
     const getData = async () => {
       const db = firebase.firestore();
@@ -28,12 +29,15 @@ const Montajes = (props) => {
   }, []);
 
   // obtengo el id del elemento en Edit
-  const getCurrentId = (currentId) => {
-    console.log(currentId);
+  const getCurrentId = (Id) => {
+    // console.log(Id);
+    const currentId = Id;
+    return currentId;
   };
+
   return (
     <div className='table__container'>
-      <Filter />
+      <Filter getCurrentId={getCurrentId} />
       <table summary='Elementos montados en la aeronave'>
         <caption>Elementos montados en la aeronave</caption>
         <thead>

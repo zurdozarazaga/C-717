@@ -6,14 +6,18 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 const Edit = (props) => {
   const { getCurrentId } = props;
   const { elementoId } = props;
+  const { functionEdit } = props;
   const [currentId, setCurrentId] = useState('');
+  console.log(currentId);
   // ejecuto la funcion que viene de Montaje
   getCurrentId(currentId);
+
+  const functiionEdit = functionEdit(elementoId, currentId);
 
   return (
     <botton
       className='tdActions--botton'
-      onClick={() => setCurrentId(elementoId)}
+      onClick={functionEdit}
     >
       <FontAwesomeIcon icon={faEdit} />
     </botton>

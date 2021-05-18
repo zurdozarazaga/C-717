@@ -3,46 +3,78 @@ import '../assets/styles/components/Add.scss';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 import firebase from "firebase/app";
 import 'firebase/firestore';
+import { toast } from 'react-toastify';
+import { getQueriesForElement } from '@testing-library/dom';
 
 const ModalCards = (props) => {
   console.log(props);
+  // props coming from Add.jsx
+  const { newElement } = props;
+  const { onClick } = props;
+  const { getCurrentId } = props;
+
+  // const currentId = getCurrentId();
+  // console.log(currentId);
+
+  // console.log(props);
   const initialStateValues = {
-    designation: '',
-    numPart: '',
-    numSerial: '',
-    position: '',
-    numDesm: '',
-    date: '',
+    designacion: '',
+    numeroParte: '',
+    numeroSerie: '',
+    posicion: '',
+    numeroDesmotanje: '',
+    fecha: '',
   };
 
+  //values from handleInputChange
   const [values, setValues] = useState(initialStateValues);
 
+  //setting values from Modal
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
     setValues({ ...values, [name]: value });
   };
 
-  const getData = async (values) => {
-    console.log(values);
+  // Modal values addded to Firebase
+  const setData = async (values) => {
+    // console.log(values);
     const db = firebase.firestore();
     try {
       await db.collection('Elementos').add(values);
-      console.log('elemento agregado');
+      toast.success('Elemento Agregado!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.log(`se produzco un error ${error}`);
+      toast.error('Se produzco un error al guardar el Elemento!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
+  //setting values in useState
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(values);
-    getData(values);
+    setData(values);
+    setValues({ ...initialStateValues });
+    onClick();
+
   };
-
-  const { newElement } = props;
-  const { onClick } = props;
-
+  console.log(newElement);
   return (
     <>
       <Modal id='modal-content' isOpen={newElement}>
@@ -58,16 +90,20 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputDesignation'
                 onChange={handleInputChange}
-                name='designation'
+                name='designacion'
+                placeholder='Nombre del elemento'
+                value={values.designacion}
               />
             </FormGroup>
             <FormGroup>
-              <Label for='password'>Número de Parte</Label>
+              <Label>Número de Parte</Label>
               <Input
                 type='text'
                 id='inputNumPart'
                 onChange={handleInputChange}
-                name='numPart'
+                name='numeroParte'
+                placeholder='Numero de parte del elemento'
+                value={values.numeroParte}
               />
             </FormGroup>
             <FormGroup>
@@ -76,7 +112,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputNumSerial'
                 onChange={handleInputChange}
-                name='numSerial'
+                name='numeroSerie'
+                placeholder='Numero de serie del elemento'
+                value={values.numeroSerie}
               />
             </FormGroup>
             <FormGroup>
@@ -85,7 +123,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputPosition'
                 onChange={handleInputChange}
-                name='position'
+                name='posicion'
+                placeholder='Posición en la aeronave'
+                value={values.posicion}
               />
             </FormGroup>
             <FormGroup>
@@ -94,7 +134,9 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputNumDesm'
                 onChange={handleInputChange}
-                name='numDesm'
+                name='numeroDesmotanje'
+                placeholder='Numero de desmontaje en el SIL'
+                value={values.numeroDesmotanje}
               />
             </FormGroup>
             <FormGroup>
@@ -103,15 +145,17 @@ const ModalCards = (props) => {
                 type='text'
                 id='inputDate'
                 onChange={handleInputChange}
-                name='date'
+                name='fecha'
+                placeholder='Fecha de Montaje'
+                value={values.fecha}
               />
             </FormGroup>
-        </ModalBody>
+          </ModalBody>
 
           <ModalFooter id='modal-footer'>
             <Button id='buttonSave'>Guardar</Button>
-            <Button id='buttonClose'  onClick={ onClick } >Cerrar</Button>
-        </ModalFooter>
+            <Button id='buttonClose' onClick={onClick}>Cerrar</Button>
+          </ModalFooter>
         </Form>
       </Modal>
     </>

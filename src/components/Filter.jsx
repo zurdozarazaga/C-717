@@ -2,12 +2,17 @@ import React from 'react';
 import '../assets/styles/components/Filter.scss';
 import Add from './Add';
 
-const Filter = () => {
+const Filter = (props) => {
+  const { getCurrentId } = props;
+  const { functionEdit } = props;
+  console.log(props);
+  
+  
   return (
     <>
       <div className='filter__container'>
         <div className='filter__container--add'>
-          <Add />
+          <Add getCurrentId={getCurrentId} functionEdit={functionEdit} />
         </div>
         <form className='filter__container'>
           <label for='Aircraft'>Seleccione Aeronave:</label>

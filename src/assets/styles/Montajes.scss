@@ -15,6 +15,10 @@ table {
   border: 3px solid white;
 }
 
+
+
+// width head
+
 thead th:nth-child(1) {
   width: 23%;
 }
@@ -24,24 +28,61 @@ thead th:nth-child(2) {
 }
 
 thead th:nth-child(3) {
-  width: 13%;
+  width: 13%; //13
 }
 
 thead th:nth-child(4) {
-  width: 10%;
+  width: 10%; //10
 }
 
 thead th:nth-child(5) {
-  width: 12%;
+  width: 12%; //12
 }
 
 thead th:nth-child(6) {
-  width: 12%;
+  width: 12%; //12
 }
 
 thead th:nth-child(7) {
+  width: 13%; //13
+}
+
+// width body
+
+.td__designacion {
+  width: 23%;
+}
+
+.td__numeroParte {
+  width: 15%;
+}
+
+.td__numeroSerie {
   width: 13%;
 }
+
+.td__posicion {
+  width: 10%;
+}
+
+.td__numeroDesmontaje {
+  width: 12%;
+}
+
+.td__fecha {
+  width: 12%;
+}
+
+.td__acciones {
+  width: 13%;
+}
+
+// td {
+//   display: block;
+//   height: 262px;
+//   overflow: auto;
+//   width: 100%;
+// }
 
 th, td {
   padding: 20px;
@@ -73,6 +114,18 @@ td {
 
 tbody td {
   text-align: center;
+}
+ 
+table tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+table thead, table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 tfoot th {

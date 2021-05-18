@@ -7,26 +7,37 @@ import Delete from './Delete';
 import 'firebase/firestore';
 import db from '../firebase';
 
-const Montajes = () => {
-
+const Montajes = (props) => {
+  // console.log(props);
+  // peticion a la base de datos firebase, lo guardo en el state 'data' y lo recorro
   const [data, setData] = useState([]);
+
   React.useEffect(() => {
     const getData = async () => {
       const db = firebase.firestore();
       try {
-        const data = await db.collection('Elementos').get();
-        const arrayData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        // console.log(arrayData);
-        setData(arrayData);
+        await db.collection('Elementos').onSnapshot((data) => {
+          const arrayData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          // console.log(arrayData);
+          setData(arrayData);
+        });
       } catch (error) {
         console.log(error);
-      }
+      };
     };
     getData();
   }, []);
+
+  // obtengo el id del elemento en Edit
+  const getCurrentId = (Id) => {
+    // console.log(Id);
+    const currentId = Id;
+    return currentId;
+  };
+
   return (
     <div className='table__container'>
-      <Filter />
+      <Filter getCurrentId={getCurrentId} />
       <table summary='Elementos montados en la aeronave'>
         <caption>Elementos montados en la aeronave</caption>
         <thead>
@@ -41,19 +52,24 @@ const Montajes = () => {
           </tr>
         </thead>
         <tbody>
+          {/* recorre el array del query */}
           {
             data.map((elemento, i) => {
               return (
                 <tr>
-                  <td key={i}>{ elemento.designacion }</td>
-                  <th scope="row">{ elemento.numeroParte }</th>
-                  <td>{ elemento.numeroSerie }</td>
-                  <td>{ elemento.posicion }</td>
-                  <td>{ elemento.numeroDesmontaje }</td>
-                  <td> fecha </td>
-                  <td>
-                    <Edit />
-                    <Delete />
+                  <td className='td__designacion' key={i}>{ elemento.designacion }</td>
+                  <th className='td__numeroParte' scope="row">{ elemento.numeroParte }</th>
+                  <td className='td__numeroSerie'>{ elemento.numeroSerie }</td>
+                  <td className='td__posicion'>{ elemento.posicion }</td>
+                  <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
+                  <td className='td__fecha'> fecha </td>
+                  <td className='td__acciones'>
+                    <Edit
+                      // envio la funcion al Edit
+                      getCurrentId={getCurrentId}
+                      elementoId={elemento.id}
+                    />
+                    <Delete idElemento={elemento.id} />
                   </td>
                 </tr>
               );

@@ -1,43 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../assets/styles/Montajes.scss';
+import { connect } from 'react-redux';
 import Filter from './Filter';
-import firebase from "firebase/app";
 import Edit from './Edit';
 import Delete from './Delete';
+
 import 'firebase/firestore';
 import db from '../firebase';
 
+import * as elemtentosActions from '../actions/elementosActions';
+
 const Montajes = (props) => {
-  // console.log(props);
-  // peticion a la base de datos firebase, lo guardo en el state 'data' y lo recorro
-  const [data, setData] = useState([]);
 
   React.useEffect(() => {
-    const getData = async () => {
-      const db = firebase.firestore();
-      try {
-        await db.collection('Elementos').onSnapshot((data) => {
-          const arrayData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          // console.log(arrayData);
-          setData(arrayData);
-        });
-      } catch (error) {
-        console.log(error);
-      };
-    };
-    getData();
+    props.traerTodos();
   }, []);
 
-  // obtengo el id del elemento en Edit
-  const getCurrentId = (Id) => {
-    // console.log(Id);
-    const currentId = Id;
-    return currentId;
-  };
-
+  console.log(props);
   return (
     <div className='table__container'>
-      <Filter getCurrentId={getCurrentId} />
       <table summary='Elementos montados en la aeronave'>
         <caption>Elementos montados en la aeronave</caption>
         <thead>
@@ -54,7 +35,7 @@ const Montajes = (props) => {
         <tbody>
           {/* recorre el array del query */}
           {
-            data.map((elemento, i) => {
+            props.elementos.map((elemento, i) => {
               return (
                 <tr>
                   <td className='td__designacion' key={i}>{ elemento.designacion }</td>
@@ -63,14 +44,7 @@ const Montajes = (props) => {
                   <td className='td__posicion'>{ elemento.posicion }</td>
                   <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
                   <td className='td__fecha'> fecha </td>
-                  <td className='td__acciones'>
-                    <Edit
-                      // envio la funcion al Edit
-                      getCurrentId={getCurrentId}
-                      elementoId={elemento.id}
-                    />
-                    <Delete idElemento={elemento.id} />
-                  </td>
+                  <td className='td__acciones' />
                 </tr>
               );
             })
@@ -80,4 +54,9 @@ const Montajes = (props) => {
     </div>
   );
 };
-export default Montajes;
+
+const mapStateToProps = (reducers) => {
+  return reducers.elementosReducer;
+};
+
+export default connect(mapStateToProps, elemtentosActions)(Montajes);

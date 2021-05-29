@@ -12,12 +12,12 @@ const Edit = (props) => {
   // ejecuto la funcion que viene de Montaje
   getCurrentId(currentId);
 
-  const functiionEdit = functionEdit(elementoId, currentId);
+  // const functiionEdit = functionEdit(elementoId, currentId);
 
   return (
     <botton
       className='tdActions--botton'
-      onClick={functionEdit}
+      // onClick={functionEdit}
     >
       <FontAwesomeIcon icon={faEdit} />
     </botton>

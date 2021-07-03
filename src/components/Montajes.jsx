@@ -19,8 +19,8 @@ const Montajes = (props) => {
   console.log(props);
   return (
     <>
-      <Filter />
       <div className='table__container'>
+      <Filter />
         <table summary='Elementos montados en la aeronave'>
           <caption>Elementos montados en la aeronave</caption>
           <thead>

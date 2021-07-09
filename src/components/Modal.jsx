@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/components/Add.scss';
+import {connect} from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 import firebase from "firebase/app";
 import 'firebase/firestore';
 import { toast } from 'react-toastify';
-import { getQueriesForElement } from '@testing-library/dom';
 
 const ModalCards = (props) => {
   console.log(props);
-  // props coming from Add.jsx
-  const { newElement } = props;
-  const { onClick } = props;
-  const { getCurrentId } = props;
+  // // props coming from Add.jsx
+  // const { newElement } = props;
+  // const { onClick } = props;
+  // const { getCurrentId } = props;
 
   // const currentId = getCurrentId();
   // console.log(currentId);
@@ -74,10 +74,9 @@ const ModalCards = (props) => {
     onClick();
 
   };
-  console.log(newElement);
   return (
     <>
-      <Modal id='modal-content' isOpen={newElement}>
+      <Modal id='modal-content' isOpen={props.state}>
         <Form onSubmit={handleSubmit}>
           <ModalHeader id='modal-header'>
             Crear Nuevo Elemento
@@ -154,7 +153,7 @@ const ModalCards = (props) => {
 
           <ModalFooter id='modal-footer'>
             <Button id='buttonSave'>Guardar</Button>
-            <Button id='buttonClose' onClick={onClick}>Cerrar</Button>
+            <Button id='buttonClose'>Cerrar</Button>
           </ModalFooter>
         </Form>
       </Modal>
@@ -162,4 +161,8 @@ const ModalCards = (props) => {
   );
 };
 
-export default ModalCards;
+const mapStateToProps = (reducers) => {
+  return reducers.openModalReducer;
+};
+
+export default connect(mapStateToProps, null)(ModalCards);

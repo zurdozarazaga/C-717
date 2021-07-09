@@ -1,6 +1,5 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
-import db from '../firebase';
 
 // eslint-disable-next-line import/prefer-default-export
 export const traerTodos = () => async (dispatch) => {
@@ -17,7 +16,5 @@ export const traerTodos = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   };
-  // getData();
 };
 
-// export default traerTodos;

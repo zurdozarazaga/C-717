@@ -8,7 +8,7 @@ import Delete from './Delete';
 import 'firebase/firestore';
 import db from '../firebase';
 
-import * as elemtentosActions from '../actions/elementosActions';
+import * as elemtentosActions from '../redux/actions/elementosActions';
 
 const Montajes = (props) => {
 
@@ -20,7 +20,7 @@ const Montajes = (props) => {
   return (
     <>
       <div className='table__container'>
-      <Filter />
+        <Filter />
         <table summary='Elementos montados en la aeronave'>
           <caption>Elementos montados en la aeronave</caption>
           <thead>

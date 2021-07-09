@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk';
 import App from './routes/App';
 
-import reducers from './reducers';
+import reducers from './redux/reducers';
 
 import './firebase';
 

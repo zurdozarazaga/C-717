@@ -4,20 +4,23 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk';
 import App from './routes/App';
 
-import reducers from './redux/reducers';
+import combineReducers from './redux/reducers';
 
 import './firebase';
 
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
 const store = createStore(
-  reducers, // todos los reducers
-  {}, // estados iniciales
-  applyMiddleware(reduxThunk),
+  combineReducers, // todos los reducers
+  composeEnhancers(applyMiddleware(reduxThunk)),
 );
+
+console.log(store);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -3,6 +3,6 @@ import elementosReducer from './elementosReducer';
 import modalReducer from './modalReducer';
 
 export default combineReducers({
-  elementosReducer,
-  modalReducer,
+  elementos: elementosReducer,
+  // stateModal: modalReducer,
 });

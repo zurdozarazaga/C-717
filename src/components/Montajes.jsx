@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../assets/styles/Montajes.scss';
-import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import Filter from './Filter';
 import Edit from './Edit';
 import Delete from './Delete';
@@ -9,14 +10,17 @@ import 'firebase/firestore';
 import db from '../firebase';
 
 import * as elemtentosActions from '../redux/actions/elementosActions';
+import { traerTodos } from '../redux/actions/elementosActions';
 
 const Montajes = (props) => {
+  const dispatch = useDispatch();
+  const elementos = useSelector((store) => store.elementos.elementos);
+  console.log(elementos);
 
   React.useEffect(() => {
-    props.traerTodos();
+    dispatch(traerTodos());
   }, []);
 
-  console.log(props);
   return (
     <>
       <div className='table__container'>
@@ -35,9 +39,8 @@ const Montajes = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* recorre el array del query */}
             {
-              props.elementos.map((elemento, i) => {
+              elementos.map((elemento, i) => {
                 return (
                   <tr>
                     <td className='td__designacion' key={i}>{ elemento.designacion }</td>
@@ -52,14 +55,15 @@ const Montajes = (props) => {
               })
             }
           </tbody>
+          {/* <Button onClick={() => dispatch(traerTodos())}> elementos</Button> */}
         </table>
       </div>
     </>
   );
 };
 
-const mapStateToProps = (reducers) => {
-  return reducers.elementosReducer;
-};
+// const mapStateToProps = (reducers) => {
+//   return reducers.elementosReducer;
+// };
 
-export default connect(mapStateToProps, elemtentosActions)(Montajes);
+export default (Montajes);

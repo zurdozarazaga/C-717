@@ -1,12 +1,11 @@
-import { OPEN_MODAL, CLOSED_MODAL } from '../types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const openModal = (payload) => ({
-  type: OPEN_MODAL,
+  type: 'open_modal',
   payload,
 });
 
 export const closeModal = (payload) => ({
-  type: CLOSED_MODAL,
+  type: 'closed_modal',
   payload,
 });

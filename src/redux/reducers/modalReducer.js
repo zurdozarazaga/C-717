@@ -1,17 +1,14 @@
-// import INITIAL_STATE_MODAL from '../initialState';
-import { OPEN_MODAL, CLOSED_MODAL } from '../types';
-
 const INITIAL_STATE_MODAL = {
   stateModal: false,
 };
 
 export default (state = INITIAL_STATE_MODAL, action) => {
   switch (action.type) {
-    case OPEN_MODAL:
+    case 'open_modal':
       return {
         stateModal: true,
       };
-    case CLOSED_MODAL:
+    case 'closed_modal':
       return {
         stateModal: false,
       };

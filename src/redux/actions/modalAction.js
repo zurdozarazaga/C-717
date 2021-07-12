@@ -1,11 +1,15 @@
 
 // eslint-disable-next-line import/prefer-default-export
-export const openModal = (payload) => ({
+export const openModal = (state) => ({
+  state: !state,
   type: 'open_modal',
-  payload,
+  payload: state,
+
 });
 
-export const closeModal = (payload) => ({
+export const closeModal = () => (state) => ({
+  state: !state,
   type: 'closed_modal',
-  payload,
+  payload: state,
 });
+// console.log(state);

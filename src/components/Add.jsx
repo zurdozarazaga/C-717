@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../assets/styles/components/Add.scss';
-import {connect} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
 
-import * as openModalAction from '../redux/actions/modalAction';
+import { openModal } from '../redux/actions/modalAction';
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 
 const Add = (props) => {
@@ -37,7 +37,9 @@ const Add = (props) => {
   //     console.log('editando');
   //   };
   // };
-  console.log(props);
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <label className='add--label'>Nuevo:</label>
@@ -53,9 +55,4 @@ const Add = (props) => {
   );
 };
 
-//mapStateToProps
-const mapStateToProps = (reducers) => {
-  return reducers.openModalReducer;
-};
-
-export default connect(mapStateToProps, openModalAction)(Add);
+export default (Add);

@@ -9,7 +9,6 @@ import Delete from './Delete';
 import 'firebase/firestore';
 import db from '../firebase';
 
-import * as elemtentosActions from '../redux/actions/elementosActions';
 import { traerTodos } from '../redux/actions/elementosActions';
 
 const Montajes = (props) => {

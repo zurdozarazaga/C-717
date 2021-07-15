@@ -1,10 +1,9 @@
 const INITIAL_STATE_MODAL = {
-  stateModal: false,
+  stateModal: null,
 };
 
-console.log(INITIAL_STATE_MODAL.stateModal);
-
 export default (state = INITIAL_STATE_MODAL, action) => {
+  console.log(action);
   switch (action.type) {
     case 'open_modal':
       return {

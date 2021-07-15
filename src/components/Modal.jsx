@@ -6,10 +6,10 @@ import firebase from "firebase/app";
 import 'firebase/firestore';
 import { toast } from 'react-toastify';
 
-import { closeModal } from '../redux/actions/modalAction';
+import { openModal } from '../redux/actions/openModalAction';
 
 const ModalCards = () => {
- 
+
   // // props coming from Add.jsx
   // const { newElement } = props;
   // const { onClick } = props;
@@ -68,7 +68,6 @@ const ModalCards = () => {
   // };
   const dispatch = useDispatch();
   const stateModal = useSelector((store) => store.stateModal.stateModal);
-  console.log(stateModal);
 
   return (
     <>
@@ -151,7 +150,7 @@ const ModalCards = () => {
             <Button id='buttonSave'>Guardar</Button>
             <Button
               id='buttonClose'
-              onClick={() => dispatch(closeModal(false))}
+              onClick={() => dispatch(openModal(false))}
             >
               Cerrar
             </Button>

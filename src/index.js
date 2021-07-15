@@ -20,7 +20,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(reduxThunk)),
 );
 
-console.log(store);
+console.log(store.combineReducers);
 
 ReactDOM.render(
   <Provider store={store}>

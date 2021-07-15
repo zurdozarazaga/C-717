@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
 
-import { openModal } from '../redux/actions/modalAction';
+import { openModal } from '../redux/actions/openModalAction';
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 
 const Add = (props) => {

@@ -6,10 +6,3 @@ export const openModal = (state) => ({
   payload: state,
 
 });
-
-export const closeModal = () => (state) => ({
-  state: !state,
-  type: 'closed_modal',
-  payload: state,
-});
-// console.log(state);

@@ -17,7 +17,7 @@ const Delete = (props) => {
     }
   };
 
-  return(
+  return (
     <>
       <botton
         className='tdActions--botton'

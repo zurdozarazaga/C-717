@@ -7,6 +7,8 @@ const setData = async (values) => {
   const db = firebase.firestore();
   try {
     await db.collection('Elementos').add(values);
+    // type: 'crear_elementos',
+    // payload: true,
     // toast.success('Elemento Agregado!', {
     //   position: 'top-center',
     //   autoClose: 5000,

@@ -67,24 +67,22 @@ const ModalCards = () => {
   //     });
   //   }
   // };
+  const dispatchCreator = useDispatch();
 
   // handleSubmit and closedModal
   const handleSubmit = (e) => {
     e.preventDefault();
     // setValues(initialStateValues);// console.log(values);
-    console.log('se ejecuto el handleSubmit');
-    setData(values);
+    // console.log(values);
+    dispatchCreator(setData(values));
   };
   const dispatch = useDispatch();
-  const dispatchCreator = useDispatch();
   const stateModal = useSelector((store) => store.stateModal.stateModal);
 
   return (
     <>
       <Modal id='modal-content' isOpen={stateModal}>
-        <Form>
-          onSubmit=
-          {handleSubmit}
+        <Form onSubmit={handleSubmit}>
           <ModalHeader id='modal-header'>
             Crear Nuevo Elemento
           </ModalHeader>
@@ -162,7 +160,7 @@ const ModalCards = () => {
             <Button
               type='submit'
               id='buttonSave'
-              // onClick={() => dispatchCreator(setData(values))}
+              onClick={() => dispatchCreator(setData(values))}
             >
               Guardar
             </Button>

@@ -2,7 +2,7 @@
 // import * as TRAER_ELEMENTOS from '../types';
 
 const initialStateElements = {
-  elementos: ['soy un initial state'],
+  elementos: [],
 };
 console.log(initialStateElements.elementos);
 

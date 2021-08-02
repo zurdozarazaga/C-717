@@ -72,8 +72,8 @@ const ModalCards = () => {
   // handleSubmit and closedModal
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setValues(initialStateValues);// console.log(values);
     // console.log(values);
+    setValues(initialStateValues);// console.log(values);
     dispatchCreator(setData(values));
   };
   const dispatch = useDispatch();
@@ -160,7 +160,7 @@ const ModalCards = () => {
             <Button
               type='submit'
               id='buttonSave'
-              onClick={() => dispatchCreator(setData(values))}
+              onClick={() => dispatch(openModal(false))}
             >
               Guardar
             </Button>

@@ -7,6 +7,7 @@ import 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 import { openModal } from '../redux/actions/openModalAction';
+import setData from '../redux/actions/createElement';
 
 const ModalCards = () => {
 
@@ -19,24 +20,24 @@ const ModalCards = () => {
   // console.log(currentId);
 
   // // console.log(props);
-  // const initialStateValues = {
-  //   designacion: '',
-  //   numeroParte: '',
-  //   numeroSerie: '',
-  //   posicion: '',
-  //   numeroDesmotanje: '',
-  //   fecha: '',
-  // };
+  const initialStateValues = {
+    designacion: '',
+    numeroParte: '',
+    numeroSerie: '',
+    posicion: '',
+    numeroDesmotanje: '',
+    fecha: '',
+  };
 
-  // //values from handleInputChange
-  // const [values, setValues] = useState(initialStateValues);
+  //values from handleInputChange
+  const [values, setValues] = useState(initialStateValues);
 
-  // //setting values from Modal
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   console.log(name, value);
-  //   setValues({ ...values, [name]: value });
-  // };
+  //setting values from Modal
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setValues({ ...values, [name]: value });
+  };
 
   // Modal values addded to Firebase
   // const setData = async (values) => {
@@ -66,13 +67,22 @@ const ModalCards = () => {
   //     });
   //   }
   // };
+  const dispatchCreator = useDispatch();
+
+  // handleSubmit and closedModal
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(values);
+    setValues(initialStateValues);// console.log(values);
+    dispatchCreator(setData(values));
+  };
   const dispatch = useDispatch();
   const stateModal = useSelector((store) => store.stateModal.stateModal);
 
   return (
     <>
       <Modal id='modal-content' isOpen={stateModal}>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <ModalHeader id='modal-header'>
             Crear Nuevo Elemento
           </ModalHeader>
@@ -83,10 +93,10 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputDesignation'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='designacion'
                 placeholder='Nombre del elemento'
-                // value={}
+                value={values.designacion}
               />
             </FormGroup>
             <FormGroup>
@@ -94,10 +104,10 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputNumPart'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='numeroParte'
                 placeholder='Numero de parte del elemento'
-                // value={values.numeroParte}
+                value={values.numeroParte}
               />
             </FormGroup>
             <FormGroup>
@@ -105,10 +115,10 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputNumSerial'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='numeroSerie'
                 placeholder='Numero de serie del elemento'
-                // value={values.numeroSerie}
+                value={values.numeroSerie}
               />
             </FormGroup>
             <FormGroup>
@@ -116,10 +126,10 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputPosition'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='posicion'
                 placeholder='Posición en la aeronave'
-                // value={values.posicion}
+                value={values.posicion}
               />
             </FormGroup>
             <FormGroup>
@@ -127,10 +137,10 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputNumDesm'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='numeroDesmotanje'
                 placeholder='Numero de desmontaje en el SIL'
-                // value={values.numeroDesmotanje}
+                value={values.numeroDesmotanje}
               />
             </FormGroup>
             <FormGroup>
@@ -138,16 +148,22 @@ const ModalCards = () => {
               <Input
                 type='text'
                 id='inputDate'
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 name='fecha'
                 placeholder='Fecha de Montaje'
-                // value={values.fecha}
+                value={values.fecha}
               />
             </FormGroup>
           </ModalBody>
 
           <ModalFooter id='modal-footer'>
-            <Button id='buttonSave'>Guardar</Button>
+            <Button
+              type='submit'
+              id='buttonSave'
+              onClick={() => dispatch(openModal(false))}
+            >
+              Guardar
+            </Button>
             <Button
               id='buttonClose'
               onClick={() => dispatch(openModal(false))}

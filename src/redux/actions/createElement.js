@@ -1,14 +1,12 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 // Modal values addded to Firebase
-const setData = async (values) => {
-  console.log(values);
+const setData = async (values) => {erro
   const db = firebase.firestore();
   try {
     await db.collection('Elementos').add(values);
-    // type: 'crear_elementos',
-    // payload: true,
     toast.success('Elemento Agregado!', {
       position: 'top-center',
       autoClose: 5000,

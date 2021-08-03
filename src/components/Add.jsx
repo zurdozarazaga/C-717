@@ -9,35 +9,7 @@ import { openModal } from '../redux/actions/openModalAction';
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 
 const Add = (props) => {
-  // const { getCurrentId } = props;
-  // const [newElement, setNewElement] = useState(false);
-
-  // const currentId = getCurrentId();
   
-
-  // const functionEdit = (elementoId, currentId) => {
-  //   () => setCurrentId(elementoId);
-  //   console.log(currentId);
-  //   if (newElement === false && currentId === undefined) {
-  //     setNewElement(!newElement);
-  //   } else if (newElement === true && currentId === undefined) {
-  //     setNewElement(!newElement);
-  //   } else if (newElement === false && currentId !== undefined) {
-  //     console.log('editando');
-  //   };
-  // };
-
-  // const handleClickNewElement = () => {
-  //   console.log(currentId);
-  //   if (newElement === false && currentId === undefined) {
-  //     setNewElement(!newElement);
-  //   } else if (newElement === true && currentId === undefined) {
-  //     setNewElement(!newElement);
-  //   } else if (newElement === false && currentId !== undefined) {
-  //     console.log('editando');
-  //   };
-  // };
-
   const dispatch = useDispatch();
 
   return (

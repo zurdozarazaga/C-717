@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import '../assets/styles/Montajes.scss';
-import { Button } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Filter from './Filter';
 import Edit from './Edit';
@@ -54,15 +53,10 @@ const Montajes = (props) => {
               })
             }
           </tbody>
-          {/* <Button onClick={() => dispatch(traerTodos())}> elementos</Button> */}
         </table>
       </div>
     </>
   );
 };
-
-// const mapStateToProps = (reducers) => {
-//   return reducers.elementosReducer;
-// };
 
 export default (Montajes);

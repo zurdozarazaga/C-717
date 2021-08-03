@@ -4,22 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label } from 'reactstrap';
 import firebase from "firebase/app";
 import 'firebase/firestore';
-import { toast } from 'react-toastify';
+
+import { toast, ToastContainer } from 'react-toastify';
 
 import { openModal } from '../redux/actions/openModalAction';
 import setData from '../redux/actions/createElement';
 
 const ModalCards = () => {
 
-  // // props coming from Add.jsx
-  // const { newElement } = props;
-  // const { onClick } = props;
-  // const { getCurrentId } = props;
-
-  // const currentId = getCurrentId();
-  // console.log(currentId);
-
-  // // console.log(props);
   const initialStateValues = {
     designacion: '',
     numeroParte: '',
@@ -35,45 +27,15 @@ const ModalCards = () => {
   //setting values from Modal
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setValues({ ...values, [name]: value });
   };
 
-  // Modal values addded to Firebase
-  // const setData = async (values) => {
-  //   // console.log(values);
-  //   const db = firebase.firestore();
-  //   try {
-  //     await db.collection('Elementos').add(values);
-  //     toast.success('Elemento Agregado!', {
-  //       position: 'top-center',
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //     });
-  //   } catch (error) {
-  //     console.log(`se produzco un error ${error}`);
-  //     toast.error('Se produzco un error al guardar el Elemento!', {
-  //       position: 'top-center',
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //     });
-  //   }
-  // };
   const dispatchCreator = useDispatch();
 
   // handleSubmit and closedModal
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(values);
-    setValues(initialStateValues);// console.log(values);
+    setValues(initialStateValues);
     dispatchCreator(setData(values));
   };
   const dispatch = useDispatch();
@@ -173,6 +135,7 @@ const ModalCards = () => {
           </ModalFooter>
         </Form>
       </Modal>
+      <ToastContainer />
     </>
   );
 };

@@ -2,7 +2,6 @@
 initialToast = {
   visible: false,
 };
-console.log(initialToast);
 const createElement = (state = initialStateElements, action) => {
   console.log(action.payload);
   switch (action.type) {

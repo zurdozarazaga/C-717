@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 // Modal values addded to Firebase
-const setData = async (values) => {erro
+const setData = async (values) => {
   const db = firebase.firestore();
   try {
     await db.collection('Elementos').add(values);

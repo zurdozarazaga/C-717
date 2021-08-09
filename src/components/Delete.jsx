@@ -7,7 +7,7 @@ import 'firebase/firestore';
 import { ToastContainer } from 'react-toastify';
 
 const Delete = (props) => {
-  const { idElemento } = props;
+  //const { idElemento } = props;
   const db = firebase.firestore();
 
   const onDeleteElement = async (id) => {

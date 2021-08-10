@@ -2,26 +2,30 @@ import React from 'react';
 import '../assets/styles/components/Delete.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import firebase from "firebase/app";
-import 'firebase/firestore';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { ToastContainer } from 'react-toastify';
 
-const Delete = (props) => {
-  //const { idElemento } = props;
-  const db = firebase.firestore();
+import onDeleteElement from '../redux/actions/deleteElementAction';
 
-  const onDeleteElement = async (id) => {
-    if (window.confirm('¿Desea eliminar el elemento?')) {
-      await db.collection('Elementos').doc(id).delete();
-      console.log('elemento eliminado');
-    }
+const Delete = (props) => {
+  // elementoId of props
+  const dispatch = useDispatch();
+  const { elementoId } = props;
+  // extraemos la id del elemento
+  console.log(elementoId);
+
+  // handle delete event
+  const handleDelete = (id) => {
+    console.log(id);
+    dispatch(onDeleteElement(id));
   };
 
   return (
     <>
       <botton
         className='tdActions--botton'
-        onClick={() => onDeleteElement(idElemento)}
+        onClick={() => handleDelete(elementoId)}
       >
         <FontAwesomeIcon icon={faTrash} />
       </botton>

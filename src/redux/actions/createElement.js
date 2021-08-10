@@ -17,7 +17,7 @@ const setData = async (values) => {
       progress: undefined,
     });
   } catch (error) {
-    console.log(`se produzco un error ${error}`);
+    console.error(`se produzco un error ${error}`);
     toast.error('Se produzco un error al guardar el Elemento!', {
       position: 'top-center',
       autoClose: 5000,

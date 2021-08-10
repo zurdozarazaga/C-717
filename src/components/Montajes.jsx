@@ -19,6 +19,13 @@ const Montajes = (props) => {
     dispatch(traerTodos());
   }, []);
 
+  const handdleId = (id) => {
+    console.log(id);
+    //return {
+    //id,
+    //}
+  };
+
   return (
     <>
       <div className='table__container'>
@@ -47,7 +54,11 @@ const Montajes = (props) => {
                     <td className='td__posicion'>{ elemento.posicion }</td>
                     <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
                     <td className='td__fecha'> fecha </td>
-                    <td className='td__acciones'> { <Edit /> } {<Delete /> }</td>
+                    <td className='td__acciones'>
+                      { <Edit /> }
+                      {<Delete elementoId={elemento.id} /> }
+                      { handdleId(elemento.id) }
+                    </td>
                   </tr>
                 );
               })

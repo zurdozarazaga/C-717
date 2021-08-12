@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 // Modal values addded to Firebase
-const setData = async (values) => {erro
+const setData = async (values) => {
   const db = firebase.firestore();
   try {
     await db.collection('Elementos').add(values);
@@ -17,7 +17,7 @@ const setData = async (values) => {erro
       progress: undefined,
     });
   } catch (error) {
-    console.log(`se produzco un error ${error}`);
+    console.error(`se produzco un error ${error}`);
     toast.error('Se produzco un error al guardar el Elemento!', {
       position: 'top-center',
       autoClose: 5000,

@@ -2,22 +2,19 @@ import React, { useState } from 'react';
 import '../assets/styles/components/Edit.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../redux/actions/openModalAction';
 
 const Edit = (props) => {
-  //const { getCurrentId } = props;
-  //const { elementoId } = props;
-  //const { functionEdit } = props;
-  //const [currentId, setCurrentId] = useState('');
-  //console.log(currentId);
-  // ejecuto la funcion que viene de Montaje
-  //getCurrentId(currentId);
+  const dispatch = useDispatch();
+  const { elementoId } = props;
 
-  // const functiionEdit = functionEdit(elementoId, currentId);
+
 
   return (
     <botton
       className='tdActions--botton'
-      // onClick={functionEdit}
+      onClick={() => dispatch(openModal(true))}
     >
       <FontAwesomeIcon icon={faEdit} />
     </botton>

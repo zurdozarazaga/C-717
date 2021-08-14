@@ -45,17 +45,17 @@ const Montajes = (props) => {
           </thead>
           <tbody>
             {
-              elementos.map((elemento, i) => {
+              elementos.map((elemento) => {
                 return (
                   <tr>
-                    <td className='td__designacion' key={i}>{ elemento.designacion }</td>
+                    <td className='td__designacion' key={elemento.id}>{ elemento.designacion }</td>
                     <th className='td__numeroParte' scope="row">{ elemento.numeroParte }</th>
                     <td className='td__numeroSerie'>{ elemento.numeroSerie }</td>
                     <td className='td__posicion'>{ elemento.posicion }</td>
                     <td className='td__numeroDesmontaje'>{ elemento.numeroDesmontaje }</td>
                     <td className='td__fecha'> fecha </td>
                     <td className='td__acciones'>
-                      { <Edit /> }
+                      { <Edit elementoId={elemento.id} /> }
                       {<Delete elementoId={elemento.id} /> }
                       { handdleId(elemento.id) }
                     </td>
